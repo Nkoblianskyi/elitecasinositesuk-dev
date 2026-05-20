@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty;  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Elite Casino Sites UK - Dark Luxury Theme
+   Palette: Deep Black · Crimson Red · Rich Gold
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --font-sans:    var(--font-inter);
+    --font-display: var(--font-playfair);
+
+    /* ── Base ── */
+    --background:         0 0% 5%;        /* near-black #0D0D0D */
+    --foreground:         40 25% 93%;     /* warm off-white */
+
+    --card:               0 0% 8%;        /* dark card #141414 */
+    --card-foreground:    40 25% 93%;
+
+    --popover:            0 0% 8%;
+    --popover-foreground: 40 25% 93%;
+
+    /* ── Crimson Red primary ── */
+    --primary:            350 73% 44%;    /* #C41E3A crimson */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary:          0 0% 11%;       /* #1C1C1C */
+    --secondary-foreground: 40 20% 75%;
+
+    --muted:              0 0% 11%;
+    --muted-foreground:   0 0% 50%;
+
+    /* ── Gold accent ── */
+    --accent:             43 67% 52%;     /* #D4AF37 rich gold */
+    --accent-foreground:  0 0% 5%;
+
+    /* ── Destructive ── */
+    --destructive:        350 73% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:             0 0% 14%;       /* #242424 */
+    --input:              0 0% 14%;
+    --ring:               43 67% 52%;
+    --radius:             0rem;
+
+    /* ── Custom semantic tokens ── */
+    --gold:               43 67% 52%;
+    --gold-bright:        43 85% 62%;
+    --gold-dim:           43 50% 38%;
+    --gold-subtle:        43 40% 18%;
+
+    --crimson:            350 73% 44%;    /* #C41E3A */
+    --crimson-bright:     350 80% 52%;
+    --crimson-dim:        350 60% 30%;
+    --crimson-subtle:     350 50% 12%;
+
+    --surface-1:          0 0% 8%;        /* card surface */
+    --surface-2:          0 0% 11%;       /* elevated surface */
+    --surface-3:          0 0% 14%;       /* borders/dividers */
+
+    --text-primary:       40 25% 93%;
+    --text-secondary:     40 15% 68%;
+    --text-muted:         0 0% 45%;
+  }
+
+  * { @apply border-border; }
+
+  html {
+    @apply bg-background;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--crimson-dim));
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--crimson)); }
+}
+
+/* ────────────────────────────────────────────
+   Decorative rules - gold/crimson
+   ──────────────────────────────────────────── */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--gold)), transparent);
+}
+.rule-crimson {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--crimson)), transparent);
+}
+
+/* ────────────────────────────────────────────
+   Section dividers
+   ──────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(var(--gold) / 0.4) 30%,
+    hsl(var(--gold) / 0.4) 70%,
+    transparent 100%
+  );
+}
+.section-divider-crimson {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(var(--crimson) / 0.5) 50%,
+    transparent 100%
+  );
+}
+
+/* ────────────────────────────────────────────
+   Corner bracket decoration - gold on dark
+   ──────────────────────────────────────────── */
+.corner-brackets {
+  position: relative;
+}
+.corner-brackets::before,
+.corner-brackets::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: hsl(var(--gold));
+  border-style: solid;
+}
+.corner-brackets::before {
+  top: 0; left: 0;
+  border-width: 1px 0 0 1px;
+}
+.corner-brackets::after {
+  bottom: 0; right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* ────────────────────────────────────────────
+   Card accent variants
+   ──────────────────────────────────────────── */
+.card-border-gold    { border-left: 3px solid hsl(var(--gold)); }
+.card-border-crimson { border-left: 3px solid hsl(var(--crimson)); }
+
+/* ────────────────────────────────────────────
+   Eyebrow labels
+   ──────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+.eyebrow-gold   { @apply eyebrow; color: hsl(var(--gold)); }
+.eyebrow-crimson { @apply eyebrow; color: hsl(var(--crimson)); }
+.eyebrow-muted  { @apply eyebrow; color: hsl(var(--text-muted)); }
+
+/* ────────────────────────────────────────────
+   Gold shimmer text
+   ──────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(43, 55%, 38%) 0%,
+    hsl(43, 90%, 65%) 40%,
+    hsl(43, 55%, 38%) 60%,
+    hsl(43, 90%, 65%) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ────────────────────────────────────────────
+   Animations
+   ──────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-border {
+  0%, 100% { border-color: hsl(var(--gold) / 0.3); }
+  50%       { border-color: hsl(var(--gold) / 0.8); }
+}
+@keyframes pulse-crimson {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--crimson) / 0.0); }
+  50%       { box-shadow: 0 0 12px 2px hsl(var(--crimson) / 0.25); }
+}
+
+.animate-fade-in       { animation: fade-in      0.6s ease-out both; }
+.animate-fade-in-up    { animation: fade-in-up   0.6s ease-out both; }
+.animate-slide-up      { animation: slide-up     0.4s ease-out both; }
+.animate-scale-in      { animation: scale-in     0.3s ease-out both; }
+.animate-pulse-border  { animation: pulse-border 2.5s ease-in-out infinite; }
+.animate-pulse-crimson { animation: pulse-crimson 2.5s ease-in-out infinite; }
+
+/* ────────────────────────────────────────────
+   Background helpers
+   ──────────────────────────────────────────── */
+.bg-surface-1 { background-color: hsl(var(--surface-1)); }
+.bg-surface-2 { background-color: hsl(var(--surface-2)); }
+.bg-surface-3 { background-color: hsl(var(--surface-3)); }
+
+.bg-crimson-hero {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsl(var(--crimson) / 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 100% 50%, hsl(var(--gold) / 0.04) 0%, transparent 60%);
+}
+
+.bg-subtle-grid {
+  background-image:
+    linear-gradient(hsl(var(--gold) / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--gold) / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ────────────────────────────────────────────
+   Button base overrides
+   ──────────────────────────────────────────── */
+.btn-elite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: hsl(var(--crimson));
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+.btn-elite:hover {
+  background-color: hsl(var(--crimson-bright));
+  box-shadow: 0 0 16px hsl(var(--crimson) / 0.35);
+}
+
+.btn-elite-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  background-color: transparent;
+  color: hsl(var(--gold));
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid hsl(var(--gold) / 0.5);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+.btn-elite-outline:hover {
+  border-color: hsl(var(--gold));
+  background-color: hsl(var(--gold) / 0.08);
+}
+
+/* ────────────────────────────────────────────
+   Policy / info page layout
+   ──────────────────────────────────────────── */
+.policy-page {
+  background-color: hsl(var(--background));
+  min-height: 100vh;
+}
+.policy-hero {
+  background-color: hsl(var(--surface-1));
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 5rem 0 3rem;
+}
+.policy-content {
+  padding: 4rem 0 6rem;
+}
+.policy-section {
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid hsl(var(--crimson) / 0.4);
+}
+.policy-section h2 {
+  font-family: var(--font-playfair);
+  color: hsl(var(--gold));
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.policy-section h3 {
+  font-family: var(--font-playfair);
+  color: hsl(var(--foreground));
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.policy-section p {
+  color: hsl(var(--text-secondary));
+  line-height: 1.75;
+  margin-bottom: 0.875rem;
+}
+.policy-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.875rem;
+}
+.policy-section ul li {
+  color: hsl(var(--text-secondary));
+  line-height: 1.75;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+.policy-section ul li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: hsl(var(--gold));
+}
