@@ -3,20 +3,20 @@ import Image from "next/image"
 import { EliteCrownLogo } from "@/components/site-header"
 
 const quickLinks = [
-  { label: "Home",                 href: "/"                   },
-  { label: "About Us",             href: "/about-us"           },
-  { label: "Privacy Policy",       href: "/privacy-policy"     },
-  { label: "Cookie Policy",        href: "/cookie-policy"      },
-  { label: "Terms and Conditions", href: "/terms"              },
-  { label: "Responsible Gaming",   href: "/responsible-gaming" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
+  { label: "Terms and Conditions", href: "/terms" },
+  { label: "Responsible Gaming", href: "/responsible-gaming" },
 ]
 
 const partnerLogos = [
-  { src: "/gamble-aware.png",             alt: "BeGambleAware",          href: "https://www.begambleaware.org/"         },
-  { src: "/gamcare.png",                  alt: "GamCare",                href: "https://www.gamcare.org.uk/"            },
-  { src: "/gordon.png",                   alt: "Gambling Therapy",       href: "https://www.gamblingtherapy.org/"       },
+  { src: "/gordon.png", alt: "Gambling Therapy", href: "https://www.gamblingtherapy.org/" },
   { src: "/Gambling_Commission_logo.png", alt: "UK Gambling Commission", href: "https://www.gamblingcommission.gov.uk/" },
-  { src: "/gamstop.svg",                  alt: "GamStop",                href: "https://www.gamstop.co.uk/"             },
+  { src: "/gamble-aware.png", alt: "BeGambleAware", href: "https://www.begambleaware.org/" },
+  { src: "/gamcare.png", alt: "GamCare", href: "https://www.gamcare.org.uk/" },
+  { src: "/gamstop.svg", alt: "GamStop", href: "https://www.gamstop.co.uk/" },
 ]
 
 export function SiteFooter() {

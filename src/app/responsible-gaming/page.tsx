@@ -30,17 +30,18 @@ const tools = [
 
 const organisations = [
   {
+    name: "Gambling Therapy",
+    description: "Free online support services, forums, and counselling for anyone around the world affected by the harms of problem gambling.",
+    href: "https://www.gamblingtherapy.org/",
+    logo: "/gordon.png",
+  },
+  {
     name: "BeGambleAware",
     description: "Free, confidential advice and support available around the clock. Call the National Gambling Helpline: 0808 8020 133.",
     href: "https://www.begambleaware.org/",
     logo: "/gamble-aware.png",
   },
-  {
-    name: "GamCare",
-    description: "The UK's leading provider of information, advice, and support for anyone affected by problem gambling.",
-    href: "https://www.gamcare.org.uk/",
-    logo: "/gamcare.png",
-  },
+
   {
     name: "GamStop",
     description: "Register with GamStop to self-exclude from all UKGC-licensed gambling websites and mobile applications simultaneously, free of charge.",
@@ -48,10 +49,10 @@ const organisations = [
     logo: "/gamstop.svg",
   },
   {
-    name: "Gambling Therapy",
-    description: "Free online support services, forums, and counselling for anyone around the world affected by the harms of problem gambling.",
-    href: "https://www.gamblingtherapy.org/",
-    logo: "/gordon.png",
+    name: "GamCare",
+    description: "The UK's leading provider of information, advice, and support for anyone affected by problem gambling.",
+    href: "https://www.gamcare.org.uk/",
+    logo: "/gamcare.png",
   },
 ]
 
