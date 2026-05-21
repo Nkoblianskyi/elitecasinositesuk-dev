@@ -43,20 +43,6 @@ export function BettingSitesList() {
     <section className="py-10 md:py-16 bg-background" aria-labelledby="casinos-heading">
       <div className="container mx-auto px-3 md:px-4 max-w-5xl">
 
-        {/* Section heading */}
-        <div className="mb-10 text-center">
-          <span className="eyebrow-gold block mb-3">UKGC Licensed Casinos - Expert Verified</span>
-          <h2
-            id="casinos-heading"
-            className="font-serif font-bold text-2xl md:text-3xl text-[hsl(var(--foreground))] mb-3 text-balance"
-          >
-            Best Elite Casino Sites UK 2026
-          </h2>
-          <div className="rule-crimson mx-auto w-24 mb-4" />
-          <p className="text-sm text-[hsl(var(--text-muted))] max-w-lg mx-auto leading-relaxed">
-            Our expert team independently reviews every casino below. All hold valid UKGC licences.
-          </p>
-        </div>
 
         {/* Cards */}
         <div className="flex flex-col gap-3">

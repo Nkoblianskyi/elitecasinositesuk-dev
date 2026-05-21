@@ -174,7 +174,7 @@ export default function ResponsibleGaming() {
                       alt={org.name}
                       width={120}
                       height={36}
-                      className="object-contain bg-white p-1 h-8 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                      className="object-contain p-1 h-8 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-200"
                     />
                     <div>
                       <p className="font-serif font-bold text-sm text-[hsl(var(--foreground))] mb-1 group-hover:text-[hsl(var(--gold))] transition-colors duration-200">
